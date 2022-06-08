@@ -1,0 +1,116 @@
+.icons-row {
+    background-color: #9b9ba3;
+}
+
+.footerContainer {
+    background-color: #313132;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 0px;
+    /* height: 323px; */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.column1,
+.column2,
+.column3 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 19px;
+    color: #ffffff;
+    text-align: left;
+}
+
+.aboutColumn p>a {
+    text-decoration: none !important;
+}
+
+.copyContainer {
+    height: 40px;
+    width: 100%;
+    left: 0px;
+    top: 283px;
+    border-radius: 0px;
+    background: #222222;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.copyText {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: grey;
+}
+
+.footHead {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 28px;
+}
+
+.change {
+    color: #fff;
+}
+
+.icons {
+    color: #fff;
+    font-size: 23px;
+}
+
+.iconsRed {
+    color: #fff;
+    font-size: 24px;
+}
+
+.faFacebookSquar {
+    color: red;
+}
+
+.logoDivision {
+    position: relative;
+    top: 2rem;
+}
+
+.iconsSocial {
+    margin-top: 1rem;
+    display: flex !important;
+    justify-content: space-evenly;
+    margin-bottom: 2rem;
+    margin-right: 2rem;
+    margin-left: 0.5rem;
+}
+
+.foottext {
+    font-weight: bold !important;
+    margin-bottom: 0px;
+}
+
+.footertxt {
+    background: #9D6939;
+}
+
+.footercolumn {
+    background: #9D5F25;
+}
+
+.footerbtntxt {
+    /* position: absolute; */
+    width: 75px;
+    height: 35px;
+    left: 832px;
+    top: 5476px;
+
+    background: #D5BA8F;
+    border-radius: 10px;
+}

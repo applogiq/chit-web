@@ -30,7 +30,7 @@ const Header = () => {
                         </span>
                     </button>
                     <div className="collapse navbar-collapse " id="navmenu">
-                        <ul className={`navbar-nav ms-auto ${styles.btnheaderspace}`}>
+                        <ul className={`navbar-nav ms-auto ${styles.btnheaderspace} ${styles.fontsAlign}`}>
                             <li>
                                 <button className={`${styles.btnheader}`} >
                                     Download App

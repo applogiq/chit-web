@@ -105,12 +105,23 @@
 }
 
 .footerbtntxt {
-    /* position: absolute; */
     width: 75px;
-    height: 35px;
-    left: 832px;
-    top: 5476px;
-
+    height: 31px;
+    border-style: none !important;
     background: #D5BA8F;
     border-radius: 10px;
+}
+
+.footerbtntxt:hover {
+    color: white;
+    background: #e6e6e6;
+}
+
+.fontsStyle {
+    font-family: 'Belleza';
+    font-size: 20px;
+}
+
+.fontsAlign {
+    font-size: 17px;
 }

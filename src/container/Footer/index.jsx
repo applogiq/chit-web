@@ -46,13 +46,13 @@ const Footer = () => {
                             <div className="col-md-3 mt-5">
                                 <div className="col-md-12">
                                     <div className="d-flex justify-content-start">
-                                        <h4>News Letter</h4>
+                                        <h4 className={`${styles.fontsStyle}`}>News Letter</h4>
                                     </div>
                                 </div>
                                 <div className="col-md-12">
                                     <div className="row">
                                         <div className="col-md-9">
-                                            <h6 className="mt-4 d-flex justify-content-start">Your email</h6>
+                                            <h6 className={`mt-4 d-flex justify-content-start mb-0  ${styles.fontsStyle}`}>Your email</h6>
                                             <form className="input-group">
                                                 <input type="text" className="form-control form-control-sm"
                                                     aria-label="Your email" aria-describedby="basic-addon2" />&nbsp;&nbsp;&nbsp;
@@ -69,36 +69,41 @@ const Footer = () => {
                             <div
                                 className={`col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 mt-5 ${styles.column1}`}
                             >
-                                <h6 className={`${styles.footHead} ${styles.aboutColumn}`}>
+                                <h6 className={`${styles.footHead} ${styles.aboutColumn} ${styles.fontsStyle}`}>
                                     Know Your Jewellwry
                                 </h6>
-                                <p>Diamond Guide</p>
-                                <p>Gold Guidey</p>
-                                <p>Silver Guide</p>
-                                <p>Platinum Guide</p>
-                                <p>Gold Price</p>
+                                <div className={`${styles.fontsAlign} pt-3`}>
+                                    <p>Diamond Guide</p>
+                                    <p>Gold Guidey</p>
+                                    <p>Silver Guide</p>
+                                    <p>Platinum Guide</p>
+                                    <p>Gold Price</p>
+                                </div>
                             </div>
                             <div
-                                className={`col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 mt-5 ${styles.column2}`}
+                                className={`col-md-1 col-lg-1 col-xl-1 mx-auto mb-4 mt-5 ${styles.column2}`}
                             >
-                                <h6 className={`${styles.footHead} ${styles.aboutColumn}`}>
+                                <h6 className={`${styles.footHead} ${styles.aboutColumn} ${styles.fontsStyle} `}>
                                     About
                                 </h6>
-                                <p>About Us</p>
-                                <p>Our story</p>
-                                <p>Careers</p>
-                                <p>FAQs</p>
+                                <div className={`${styles.fontsAlign} pt-3`}>
+                                    <p>About Us</p>
+                                    <p>Our story</p>
+                                    <p>Careers</p>
+                                    <p>FAQs</p>
+                                </div>
                             </div>
                             <div
                                 className={`col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 mt-5 ${styles.column2}`}
                             >
-                                <h6 className={`${styles.footHead} ${styles.aboutColumn}`}>
+                                <h6 className={`${styles.footHead} ${styles.aboutColumn} ${styles.fontsStyle}`}>
                                     <p>Customer Service</p>
                                 </h6>
-                                <p></p>
-                                <p>227, Brough Rd</p>
-                                <p> Erode, Tamil Nadu, 638011</p>
-                                <p>04242254164</p>
+                                <div className={`${styles.fontsAlign} pt-1`}>
+                                    <p>227, Brough Rd</p>
+                                    <p> Erode, Tamil Nadu, 638011</p>
+                                    <p>04242254164</p>
+                                </div>
                             </div>
                         </div>
                     </footer>

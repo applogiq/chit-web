@@ -7,6 +7,10 @@
     border-radius: 4px;
 }
 
+.btnheader:hover {
+    background: #9D6939;
+}
+
 .btnheaderspace {
     display: flex;
     width: 50%;
@@ -24,6 +28,9 @@
     background-size: 100%;
 }
 
+.fontsAlign {
+    font-size: 17px;
+}
 
 /* Responsive */
 

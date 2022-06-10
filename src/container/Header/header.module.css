@@ -1,0 +1,44 @@
+.btnheader {
+    width: 142px;
+    height: 40px;
+    color: white;
+    border-style: none !important;
+    background: #D5BA8F;
+    border-radius: 4px;
+}
+
+.btnheader:hover {
+    background: #9D6939;
+}
+
+.btnheaderspace {
+    display: flex;
+    width: 50%;
+    justify-content: space-evenly;
+}
+
+.menuIcon {
+    color: black;
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+
+.fontsAlign {
+    font-size: 17px;
+}
+
+/* Responsive */
+
+@media only screen and (min-width:320px) and (max-width:991px) {
+    .btnheaderspace {
+        margin-left: 0px !important;
+        margin-top: 10px;
+        width: 100%;
+        text-align: left;
+    }
+}

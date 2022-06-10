@@ -1,3 +1,18 @@
+
+## chit-web
+
+This is a Single page application promoting the app Chit-mobile
+
+It contains total of three pages 
+
+## Modules 
+
+1) Landing page - Contains  Nav-bar, Banner component, Our Gallery component, Customer review component and Footer
+
+2) Chit Scheme - It shows the available schemes if the user wants to join they can give their needed details and join the scheme.
+
+3) Join Scheme - In this page the user give their details and make an join request
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -33,4 +48,6 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 To start the db.json server
+
 npx json-server --watch db.json 
+

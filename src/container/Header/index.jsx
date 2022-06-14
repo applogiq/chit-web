@@ -1,6 +1,9 @@
 /* ************************** Import Packages *************************** **/
 import React from 'react'
 
+/* ***************************** Import Next  Packages ******************************** **/
+import Link from "next/link";
+
 /* ************************** Import CSS *************************** **/
 import styles from "./header.module.css";
 
@@ -32,9 +35,11 @@ const Header = () => {
                             <li className="nav-item">
                                 <a href="#About" className="nav-link text-dark">About</a>
                             </li>
-                            <li className="nav-item">
-                                <a href="#chitscheme" className="nav-link text-dark">ChitScheme</a>
-                            </li>
+                            <Link href="/chitscheme">
+                                <li className="nav-item">
+                                    <a href="#chitscheme" className="nav-link text-dark">ChitScheme</a>
+                                </li>
+                            </Link>
                             <li className="nav-item">
                                 <a href="#contact-us" className="nav-link text-dark">Contact-us</a>
                             </li>

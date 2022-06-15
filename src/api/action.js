@@ -154,7 +154,7 @@ export const getListByApi = (requestUrl, params) => {
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`,
+                // Authorization: `Bearer ${token}`,
             },
         }
     )

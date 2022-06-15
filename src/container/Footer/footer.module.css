@@ -98,6 +98,8 @@
 
 .footertxt {
     background: #9D6939;
+    z-index: -1;
+    margin-top: 350px;
 }
 
 .footercolumn {

@@ -11,12 +11,12 @@ const config = {
   },
   local: {
     url: "http://localhost:4000/",
-    apiUrl: "http://localhost:3000/dev/",
+    apiUrl: "http://192.168.29.152:5000/api/v1/",
     //   bucketName: "applogiq-official-website-development"
   },
 };
 
-const environment = "developement";
+const environment = "local";
 
 const hostConfig = {
   WEB_URL: config[environment].url,

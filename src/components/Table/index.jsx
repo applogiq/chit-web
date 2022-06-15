@@ -1,10 +1,10 @@
 /* ************************** Import Packages *************************** **/
-import React, { useState } from 'react';
+import React from 'react';
 
 /* ************************** Import CSS *************************** **/
 import styles from "./table.module.css";
 
-export default function (props) {
+const Table = (props) => {
     const {
         fields,
         customFileds,
@@ -18,43 +18,47 @@ export default function (props) {
     };
 
     return (
-        <div className="p-4">
-            <div className="border">
-                <div className={`${styles.customTable}`}>
-                    <table>
-                        <tr>
-                            {fields?.map((item, index) => (
-                                <th className="p-3" key={index}>
-                                    {item?.replace(/([a-z0-9])([A-Z])/g, '$1 $2')}
-                                </th>
-                            ))}
-                        </tr>
-                        {data?.map((item, itemIndex) => (
-                            <tr
-                                className={`${styles.customTableContent}`}
-                                key={itemIndex}
-                                onClick={(e) => handleOnClick(e, item, itemIndex)}
-                            >
-                                {Array(fields.length)
-                                    ?.fill(1)
-                                    ?.map((data, dataIndex) => (customFileds[`${fields?.[dataIndex]}`] ? (
-                                        <td className="p-3" key={dataIndex}>
-                                            {customFileds[`${fields?.[dataIndex]}`](item)}
-                                        </td>
-                                    ) : (
-                                        <td
-                                            className="p-3"
-                                            key={dataIndex}
-                                        >
-                                            {item?.[`${fields?.[dataIndex]}`] || '-'}
-                                        </td>
-                                    )))}
+        <div className="container">
+            <div className="p-2">
+                <div>
+                    <div className={`${styles.customTable}`}>
+                        <table>
+                            <tr className={`${styles.headcolor}`}>
+                                {fields?.map((item, index) => (
+                                    <th className="p-3" key={index}>
+                                        {item?.replace(/([a-z0-9])([A-Z])/g, '$1 $2')}
+                                    </th>
+                                ))}
                             </tr>
-                        ))}
-                    </table>
-                </div>
+                            {data?.map((item, itemIndex) => (
+                                <tr
+                                    className={`${styles.customTableContent}`}
+                                    key={itemIndex}
+                                    onClick={(e) => handleOnClick(e, item, itemIndex)}
+                                >
+                                    {Array(fields.length)
+                                        ?.fill(1)
+                                        ?.map((data, dataIndex) => (customFileds[`${fields?.[dataIndex]}`] ? (
+                                            <td className="p-3 bg-white" key={dataIndex}>
+                                                {customFileds[`${fields?.[dataIndex]}`](item)}
+                                            </td>
+                                        ) : (
+                                            <td
+                                                className="p-3"
+                                                key={dataIndex}
+                                            >
+                                                {item?.[`${fields?.[dataIndex]}`] || '-'}
+                                            </td>
+                                        )))}
+                                </tr>
+                            ))}
+                        </table>
+                    </div>
 
+                </div>
             </div>
         </div>
     )
 }
+
+export default Table;

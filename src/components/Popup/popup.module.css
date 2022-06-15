@@ -1,0 +1,43 @@
+.customModal {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+    top: 0;
+    left: 0;
+}
+
+.customPopupContent {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+}
+
+.customPopupHeaderContainer {
+    border-radius: 0.5rem !important;
+    width: 905px;
+    padding: 1rem;
+    background-color: #F7F6F2;
+    margin-top: 50px;
+}
+
+.customPopupHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.customModal footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.customModal footer button {
+    margin: 0.5rem;
+}
+
+.titletxt {
+    font-weight: 600;
+    padding-left: 25px;
+    color: rgba(65, 39, 15, 0.8);
+}

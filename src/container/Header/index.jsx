@@ -13,7 +13,7 @@ const Header = () => {
     //  Header Nav-bar Section
     return (
         <div>
-            <nav className="navbar navbar-expand-lg bg-white navbar-dark py-3 fixed-top">
+            <nav className={`${styles.navtxt} navbar navbar-expand-lg bg-white navbar-dark py-3 fixed-top`}>
                 <div className="container">
                     <img
                         src="assets/images/logo.png"

@@ -4,3 +4,6 @@ import { API_ENDPOINT } from "./urls";
 
 
 export const createCart = (params) => postDataApi(API_ENDPOINT.cart, params);
+
+export const createJoinScheme = (params) => postDataApi(API_ENDPOINT.users, params);
+

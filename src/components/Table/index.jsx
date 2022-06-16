@@ -13,7 +13,7 @@ const Table = (props) => {
     } = props;
 
     const handleOnClick = (e, item, index) => {
-        e.hold();
+        // e.hold();
         handleClick(item, index)
     };
 

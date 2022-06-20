@@ -24,6 +24,8 @@
 .customTable td {
     text-align: left;
     padding: 8px;
+    font-weight: 600;
+    color: rgba(65, 39, 15, 0.8);
 }
 
 .customTable tr {
@@ -42,4 +44,3 @@
 .headcolor {
     color: rgba(65, 39, 15, 0.6);
 }
-

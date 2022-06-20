@@ -12,7 +12,7 @@ const InputStyled = styled.input`
  border: none;
 `;
 
-export default function ({
+export default function Form({
   onClick,
   onChange,
   placeholder,
@@ -42,4 +42,4 @@ export default function ({
       {...others}
     />
   );
-};
+}

@@ -1,6 +1,6 @@
 const API_ENDPOINT = {
     cart: "ser_cart/cart",
-    schemes: "scheme",
+    schemes: "scheme-website",
     users: "user",
 };
 

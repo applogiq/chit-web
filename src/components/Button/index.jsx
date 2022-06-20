@@ -7,7 +7,11 @@ import styles from "./button.module.css";
 
 const Button = (props) => {
     const {
-        text, type, color, className, onClick,
+        text,
+        type,
+        //  color, 
+        className,
+        onClick,
     } = props;
     const [customClass, setCustomClass] = useState('');
 

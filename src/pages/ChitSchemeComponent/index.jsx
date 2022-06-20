@@ -1,6 +1,6 @@
 /* ***************************** Import Packages ******************************** **/
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
@@ -14,7 +14,7 @@ import Form from "../../components/Form";
 import SelectBox from "../../components/SelectBox";
 
 /* ************************** Import Utils *************************** **/
-import inputMask from "../../utils/inputMasking";
+// import inputMask from "../../utils/inputMasking";
 
 /* ************************** Import Redux Action *************************** **/
 import { getSchemeData } from "../../redux/actions/schemeAction";
@@ -25,7 +25,7 @@ const ChitScheme = () => {
     const [data, setData] = useState([]);
     const [show, setShow] = useState(false)
     const [popup, setPopup] = useState({});
-    const [schemeId, setSchemeId] = useState("");
+    // const [schemeId, setSchemeId] = useState("");
 
     const formik = useFormik({
         initialValues: {
@@ -37,7 +37,7 @@ const ChitScheme = () => {
             pincode: "",
             city: "",
             verification_document: "",
-            document_type: "",
+            // document_type: "",
         },
         validationSchema: yup.object({
             name: yup
@@ -52,7 +52,7 @@ const ChitScheme = () => {
             state: yup.string().required("State is required"),
             city: yup.string().required("City is required"),
             verification_document: yup.string().required("Verification Document is required"),
-            document_type: yup.string().required("Document Type is required"),
+            // document_type: yup.string().required("Document Type is required"),
         }),
 
         onSubmit: (userInputData) => {
@@ -62,7 +62,7 @@ const ChitScheme = () => {
                 dispatch(CreateJoinData(userInputData)).then((res) => {
                     if (res) {
                         console.log(res, "toastfy");
-                        toast.success("Registered Successfully");
+                        // toast.success("Registered Successfully");
                     }
                 });
             }
@@ -75,7 +75,7 @@ const ChitScheme = () => {
             formik.values.state = '';
             formik.values.city = '';
             formik.values.verification_document = '';
-            formik.values.document_type = '';
+            // formik.values.document_type = '';
         },
     });
 
@@ -95,7 +95,7 @@ const ChitScheme = () => {
         dispatch(getSchemeData()).then((res) => {
             console.log(res?.records, "Get the scheme data");
             setData(res?.records);
-            setSchemeId(res?.records?.id);
+            // setSchemeId(res?.records?.id);
         })
     }, [])
 
@@ -119,7 +119,7 @@ const ChitScheme = () => {
                     MonthlyInstallment: (item) => (
                         <td>{item?.monthly_installment}</td>
                     ),
-                    Action: (item) => (
+                    Action: () => (
                         <div>
                             <button className={`${styles.btn}`} onClick={() => handleMoadal()} >Join</button>
                         </div>
@@ -296,10 +296,10 @@ const ChitScheme = () => {
                         <div className="col-md-6 form-group">
                             <h6 className="mb-0 mt-3 ">Upload</h6>
                             <Form
-                                type="file"
+                                // type="file"
                                 width="95%"
                                 height="38px"
-                                className={`${styles.customFileLable} ${styles.customFileLable1}`}
+                                // className={`${styles.customFileLable} ${styles.customFileLable1}`}
                                 name="document_type"
                                 value={formik.values.document_type}
                                 onChange={formik.handleChange}

@@ -16,7 +16,9 @@ const SelectBoxStyled = styled.select`
 `;
 
 function SelectBox({
-  name, onClick, onChange, value, children, ...others
+  name,
+  onChange,
+  value, children, ...others
 }) {
   return (
     <SelectBoxStyled

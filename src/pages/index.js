@@ -1,3 +1,4 @@
+
 /** **************************** Import Packages ****************************** */
 import React from 'react';
 
@@ -13,7 +14,6 @@ const Home = () => {
 
   return (
     <>
-
       <Banner />
       <div className="mt-5">
         <Description />
@@ -22,7 +22,4 @@ const Home = () => {
       <Review />
       <MobileBanner />
     </>
-  )
-}
-
 export default Home;

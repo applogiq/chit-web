@@ -1,5 +1,18 @@
+@font-face {
+    font-family: "Source Sans Pro";
+    src: url(../Font/SourceSansPro-Regular.ttf);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+.App {
+    margin-top: 5rem;
+}
+
+body {
+    font-family: 'Source Sans Pro', Tahoma, Geneva, Verdana, sans-serif;
 }

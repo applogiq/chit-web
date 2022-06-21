@@ -1,0 +1,45 @@
+.banner {
+    margin-top: 100px;
+}
+
+.banner {
+    position: relative;
+}
+
+.banertxt {
+    position: absolute;
+    top: 250px;
+    left: 130px;
+}
+
+.bannertext {
+    font-family: 'Belleza';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 80px;
+    color: #41270F;
+}
+
+.bannertext1 {
+    font-family: 'Belleza';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 80px;
+    line-height: 80px;
+    color: #9D6939;
+}
+
+.banerimage {
+    position: absolute;
+    /* left: 700px; */
+    right: 9rem;
+    top: 160px;
+}
+
+.banerimage1 {
+    position: absolute;
+    /* left: 700px; */
+    right: 38rem;
+    top: 450px;
+}

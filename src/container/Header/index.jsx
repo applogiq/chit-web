@@ -7,6 +7,7 @@ import styles from "./header.module.css";
 /* ************************** Import Icons *************************** **/
 import { CgMenu } from 'react-icons/cg';
 const Header = () => {
+
     //  Header Nav-bar Section
     return (
         <div>
@@ -33,10 +34,10 @@ const Header = () => {
                                 <a href="#About" className="nav-link text-dark">About</a>
                             </li>
                             <li className="nav-item">
-                                <a href="#chitscheme" className="nav-link text-dark">ChitScheme</a>
+                                <a href="#chitscheme" className="nav-link text-dark">Chit Scheme</a>
                             </li>
                             <li className="nav-item">
-                                <a href="#contact-us" className="nav-link text-dark">Contact-us</a>
+                                <a href="#contact-us" className="nav-link text-dark">Contact Us</a>
                             </li>
                         </ul>
                     </div>

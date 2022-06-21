@@ -9,7 +9,7 @@
 .banertxt {
     position: absolute;
     top: 250px;
-    left: 110px;
+    left: 130px;
 }
 
 .bannertext {
@@ -32,10 +32,8 @@
 
 .banerimage {
     position: absolute;
-    /* width: 583px; */
-    /* height: 640px; */
-    /* left: 900px; */
-    right: 140px;
+    /* left: 700px; */
+    right: 9rem;
     top: 160px;
 }
 

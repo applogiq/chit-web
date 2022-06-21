@@ -36,6 +36,7 @@
 }
 
 .txtcolor {
+    font-family: 'Source Sans Pro';
     font-style: normal;
     font-weight: 400;
     font-size: 17px;
@@ -44,6 +45,7 @@
 }
 
 .txtcolor1 {
+    font-family: 'Source Sans Pro';
     font-size: 17px;
     line-height: 30px;
     color: #41270F;
@@ -51,7 +53,8 @@
 
 .imageDescription {
     position: absolute;
-    bottom: 50px;
+    /* bottom: -40px; */
+    top: -61px;
 }
 
 .space {

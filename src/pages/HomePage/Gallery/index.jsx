@@ -33,7 +33,7 @@ const Gallery = () => {
                     </div>
 
                 </div>
-                <div className="row">
+                <div className="row" style={{ marginTop: "8px" }}>
                     <div className="col-md-4 mt-3">
                         <img
                             src="assets/images/gallery4.png"

@@ -2,10 +2,12 @@
 import React from 'react';
 
 /** **************************** Import Components ****************************** */
-import Banner from './banner';
-import Description from './description';
-import Gallery from './gallery';
-// import Review from './review';
+import Banner from "../pages/HomePage/Banner";
+import Description from "../pages/HomePage/Description";
+import Gallery from "../pages/HomePage/Gallery";
+import Review from "../pages/HomePage/Review";
+import MobileBanner from './HomePage/MobileBanner';
+
 
 const Home = () => {
 
@@ -17,7 +19,8 @@ const Home = () => {
         <Description />
       </div >
       <Gallery />
-      {/* <Review /> */}
+      <Review />
+      <MobileBanner />
     </>
   )
 }

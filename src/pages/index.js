@@ -22,4 +22,6 @@ const Home = () => {
       <Review />
       <MobileBanner />
     </>
+  )
+}
 export default Home;

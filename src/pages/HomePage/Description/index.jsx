@@ -85,7 +85,7 @@ const description = () => {
                                         In this fast moving world we don’t have enough time to keep hoping around from one showroom to another showroom to find a suitable jewellery for a relevant occasion. You neither get the benefit of the entire range as it won’t be feasible.
                                     </p>
                                 </div>
-                                <div className="col-md-4" style={{ marginTop: "19px" }}>
+                                <div className="col-md-4">
                                     <img
                                         src="assets/images/image4.png"
                                         alt="About Us"

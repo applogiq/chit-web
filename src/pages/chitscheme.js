@@ -1,15 +1,14 @@
 /* ************************** Import Packages *************************** **/
-import React from 'react'
+import dynamic from "next/dynamic";
+import React from "react";
 
 /* ************************** Import Components *************************** **/
-import ChitScheme from './ChitSchemeComponent'
+const ChitScheme = dynamic(() => import("./ChitSchemeComponent"), {
+  ssr: false,
+}); // To fix "Warning: Expected server HTML to contain a matching <tag> in <tag>."
 
-const chitscheme = () => {
-    return (
-        <div>
-            <ChitScheme />
-        </div>
-    )
-}
+const ChitSchemeRoute = () => {
+  return <ChitScheme />;
+};
 
-export default chitscheme;
+export default ChitSchemeRoute;

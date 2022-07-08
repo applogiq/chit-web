@@ -19,6 +19,8 @@ const Popup = (props) => {
         CancelText,
         SubmitText,
         SubmitColor,
+        CloseForm,
+
     } = props;
     return (
         <div
@@ -42,7 +44,7 @@ const Popup = (props) => {
                         <Button
                             text={`${SubmitText || 'Join'}`}
                             type={`${SubmitColor || 'primary'}`}
-                            onClick={handleSaveModal}
+                            onClick={() => { handleSaveModal(), CloseForm() }}
                         />
                     </footer>
                 </div>

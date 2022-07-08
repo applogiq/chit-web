@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import { toast } from "react-toastify";
 
 /* ************************** Import Component Level CSS *************************** **/
 import styles from "./chitscheme.module.css";
@@ -26,13 +27,12 @@ const ChitScheme = () => {
   const [data, setData] = useState([]);
   const [show, setShow] = useState(false);
   const [popup, setPopup] = useState({});
-  // const [schemeId, setSchemeId] = useState("");
+  const [schemeId, setSchemeId] = useState("");
 
   useEffect(() => {
     dispatch(getSchemeData()).then((res) => {
       console.log(res?.records, "Get the scheme data");
       setData(res?.records);
-      // setSchemeId(res?.records?.id);
     });
   }, []);
 
@@ -46,48 +46,49 @@ const ChitScheme = () => {
       pincode: "",
       city: "",
       verification_document: "",
-      document_type: ""
+      document: "",
+      document_type: "",
     },
     validationSchema: yup.object({
       name: yup
         .string()
-        .required(" Name is Required")
-        .min(1, "Minimun 1 Charecter Required")
-        .max(15, "Maximun 15 Charecter Required"),
-      email_id: yup.string().required("E-mail-id is required"),
-      mobile_number: yup.string().required("Mobile Number is required"),
-      country: yup.string().required("Country is required"),
-      pincode: yup.string().required("Pincode is required"),
-      state: yup.string().required("State is required"),
-      city: yup.string().required("City is required"),
+        .required("Field should not be empty"),
+      email_id: yup.string().required("Field should not be empty"),
+      mobile_number: yup.string().required("Field should not be empty"),
+      country: yup.string().required("Field should not be empty"),
+      pincode: yup.string().required("Field should not be empty"),
+      state: yup.string().required("Field should not be empty"),
+      city: yup.string().required("Field should not be empty"),
       verification_document: yup
         .string()
-        .required("Verification Document is required"),
-      // document_type: yup.string().required("Document Type is required"),
+        .required("Field should not be empty"),
+      document: yup.string().required("Field should not be empty"),
     }),
 
     onSubmit: (userInputData) => {
       console.log("Check req. payload ---->", userInputData);
+      userInputData.scheme_id = schemeId;
       if (userInputData) {
         userInputData.scheme_id = popup?.id;
         dispatch(CreateJoinData(userInputData)).then((res) => {
           if (res) {
             console.log(res, "toastfy");
-            toast.success("Registered Successfully");
             handleHideModal();
+            // console.log(res, "toastfy");
+            // toast.success("Registered Successfully");
           }
         });
       }
 
-      formik.values.name = "";
-      formik.values.email_id = "";
-      formik.values.mobile_number = "";
-      formik.values.country = "";
-      formik.values.pincode = "";
-      formik.values.state = "";
-      formik.values.city = "";
-      formik.values.verification_document = "";
-      // formik.values.document_type = '';
+      // formik.values.name = "";
+      // formik.values.email_id = "";
+      // formik.values.mobile_number = "";
+      // formik.values.country = "";
+      // formik.values.pincode = "";
+      // formik.values.state = "";
+      // formik.values.city = "";
+      // formik.values.verification_document = "";
+      // // formik.values.document = '';
     },
   });
 
@@ -102,6 +103,26 @@ const ChitScheme = () => {
   const handleHideModal = () => {
     setShow(false);
   };
+
+  const handleFileUpload = async (e) => {
+    {
+      const file = e.target.files[0];
+      let base64 = await convertBase64(file);
+      // For replacing pre-string of base64
+      if (file?.type === "image/jpeg" || file?.type === "image/png") {
+        base64 = base64.replace(/^data:image\/\w+;base64,/, "");
+        formik.setFieldValue("document_type", "img");
+      } else {
+        base64 = base64.replace(/^data:application\/\w+;base64,/, "");
+        formik.setFieldValue("document_type", "pdf");
+      }
+      formik.setFieldValue("document", base64);
+    }
+  };
+
+  const CloseForm = () => {
+    formik.resetForm();
+  }
 
   return (
     <div className={`${styles.table} container`}>
@@ -119,16 +140,21 @@ const ChitScheme = () => {
           TotalAmount: (item) => <td>{item?.total_amount}</td>,
           TotalMonths: (item) => <td>{item?.total_month}</td>,
           MonthlyInstallment: (item) => <td>{item?.monthly_installment}</td>,
-          Action: () => (
-            <div>
-              <button
-                className={`${styles.btn}`}
-                onClick={() => handleMoadal()}
-              >
-                Join
-              </button>
-            </div>
-          ),
+          Action: (item) => {
+            console.log("Check item from table action", item);
+            return (
+              <div>
+                <button
+                  className={`${styles.btn}`}
+                  onClick={() => {
+                    handleMoadal(), setSchemeId(item?.id);
+                  }}
+                >
+                  Join
+                </button>
+              </div>
+            );
+          },
         }}
         data={data}
         handleClick={handleform}
@@ -138,8 +164,10 @@ const ChitScheme = () => {
         handleHideModal={handleHideModal}
         handleSaveModal={formik.handleSubmit}
         title="Join Scheme"
+        CloseForm={CloseForm}
+
       >
-        <form onSubmit={formik.handleSubmit}>
+        <form onSubmit={formik.handleSubmit} >
           <div className="row ps-4 mt-4">
             <div className="col-md-6 form-group">
               <h6 className="mb-0 mt-3 ">Your Name</h6>
@@ -181,10 +209,12 @@ const ChitScheme = () => {
                 width="95%"
                 height="38px"
                 name="mobile_number"
-                onChange={(e) => {
-                  const maskedValue = inputMask("mobile", e);
-                  formik.setFieldValue("mobile_number", maskedValue);
-                }}
+                onChange={formik.handleChange}
+
+                // onChange={(e) => {
+                //   const maskedValue = inputMask("mobile", e);
+                //   formik.setFieldValue("mobile_number", maskedValue);
+                // }}
                 // onBlur={formik.handleBlur}
                 value={
                   formik.values.mobile_number
@@ -311,20 +341,15 @@ const ChitScheme = () => {
                 width="95%"
                 height="38px"
                 // className={`${styles.customFileLable} ${styles.customFileLable1}`}
-                name="document_type"
-                value={formik?.values.document_type}
-                onChange={async (e) => {
-                  const file = e.target.files[0];
-                  const base64 = await convertBase64(file);
-                  await formik.setFieldValue("document_type", base64);
-                }}
+                name="document"
+                onChange={(e) => handleFileUpload(e)}
                 margin="10px 0px 0px 0px"
                 padding="0px 10px 0px 10px"
               />
               <div>
-                {formik.touched.document_type && formik.errors.document_type ? (
+                {formik.touched.document && formik.errors.document ? (
                   <span className="text-danger error">
-                    {formik.errors.document_type}
+                    {formik.errors.document}
                   </span>
                 ) : null}
               </div>

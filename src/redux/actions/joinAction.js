@@ -1,4 +1,5 @@
 /** **************************** Import Types ****************************** */
+import { toast } from "react-toastify";
 import {
     JOIN_REQUEST,
     JOIN_SUCCESS,
@@ -30,6 +31,7 @@ export const CreateJoinData = (data) =>
             .then((res) => {
                 if (!res.code) {
                     dispatch(joinSuccess(res));
+                    toast.success("Registered successfully");
                     return res;
                 }
                 dispatch(joinFailure(res.message));

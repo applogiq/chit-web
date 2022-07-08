@@ -28,6 +28,7 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
+}
 
 .App {
     margin-top: 5rem;

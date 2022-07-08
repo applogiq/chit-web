@@ -19,6 +19,7 @@ import { CreateJoinData } from "../../redux/actions/joinAction";
 
 /* ************************** Import Utils *************************** **/
 import { convertBase64 } from "../../utils/convertBase64";
+import inputMask from "../../utils/inputMasking";
 
 const ChitScheme = () => {
   const dispatch = useDispatch();
@@ -67,15 +68,16 @@ const ChitScheme = () => {
 
     onSubmit: (userInputData) => {
       console.log("Check req. payload ---->", userInputData);
-      //   if (userInputData) {
-      //     userInputData.scheme_id = popup?.id;
-      //     dispatch(CreateJoinData(userInputData)).then((res) => {
-      //       if (res) {
-      //         // console.log(res, "toastfy");
-      //         // toast.success("Registered Successfully");
-      //       }
-      //     });
-      //   }
+      if (userInputData) {
+        userInputData.scheme_id = popup?.id;
+        dispatch(CreateJoinData(userInputData)).then((res) => {
+          if (res) {
+            console.log(res, "toastfy");
+            toast.success("Registered Successfully");
+            handleHideModal();
+          }
+        });
+      }
 
       formik.values.name = "";
       formik.values.email_id = "";
@@ -179,8 +181,14 @@ const ChitScheme = () => {
                 width="95%"
                 height="38px"
                 name="mobile_number"
-                value={formik.values.mobile_number}
-                onChange={formik.handleChange}
+                onChange={(e) => {
+                  const maskedValue = inputMask("mobile", e);
+                  formik.setFieldValue("mobile_number", maskedValue);
+                }}
+                // onBlur={formik.handleBlur}
+                value={
+                  formik.values.mobile_number
+                }
                 margin="10px 0px 0px 0px"
                 padding="0px 10px 0px 10px"
               />
@@ -255,7 +263,10 @@ const ChitScheme = () => {
                 width="95%"
                 height="38px"
                 name="pincode"
-                onChange={formik.handleChange}
+                onChange={(e) => {
+                  const maskedValue = inputMask("zipCode", e);
+                  formik.setFieldValue("pincode", maskedValue);
+                }}
                 value={formik.values.pincode}
                 margin="10px 0px 0px 0px"
                 padding="0px 10px 0px 10px"
@@ -286,7 +297,7 @@ const ChitScheme = () => {
               </SelectBox>
               <div>
                 {formik.touched.verification_document &&
-                formik.errors.verification_document ? (
+                  formik.errors.verification_document ? (
                   <span className="text-danger error">
                     {formik.errors.verification_document}
                   </span>

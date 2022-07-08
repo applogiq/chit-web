@@ -73,9 +73,7 @@ const ChitScheme = () => {
         dispatch(CreateJoinData(userInputData)).then((res) => {
           if (res) {
             console.log(res, "toastfy");
-            handleHideModal();
-            // console.log(res, "toastfy");
-            // toast.success("Registered Successfully");
+
           }
         });
       }
@@ -122,6 +120,7 @@ const ChitScheme = () => {
 
   const CloseForm = () => {
     formik.resetForm();
+    handleHideModal();
   }
 
   return (
@@ -209,12 +208,10 @@ const ChitScheme = () => {
                 width="95%"
                 height="38px"
                 name="mobile_number"
-                onChange={formik.handleChange}
-
-                // onChange={(e) => {
-                //   const maskedValue = inputMask("mobile", e);
-                //   formik.setFieldValue("mobile_number", maskedValue);
-                // }}
+                onChange={(e) => {
+                  const maskedValue = inputMask("mobile", e);
+                  formik.setFieldValue("mobile_number", maskedValue);
+                }}
                 // onBlur={formik.handleBlur}
                 value={
                   formik.values.mobile_number

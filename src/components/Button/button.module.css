@@ -1,0 +1,24 @@
+.primaryButton {
+    background-color: #D5BA8F;
+    color: white;
+}
+
+.customButton {
+    border: 1px solid #D5BA8F;
+    min-width: 100px;
+    padding: 0.25rem;
+}
+
+.customButton:hover {
+    background-color: #D5BA8F;
+    color: white;
+}
+
+.primaryButton:hover {
+    background-color: #9D6939;
+}
+
+.secondaryButton {
+    background-color: white;
+    color: #D5BA8F;
+}

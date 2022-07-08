@@ -1,0 +1,73 @@
+.table {
+    margin-top: 130px;
+}
+
+.tabletxt {
+    font-family: 'Belleza';
+    color: #9D6939;
+    padding-left: 21px;
+}
+
+.btn {
+    width: 91px;
+    height: 40px;
+    left: 1605px;
+    top: 273px;
+    border: none;
+    background: #D5BA8F;
+    border-radius: 6px;
+    color: white;
+}
+
+.btn:hover {
+    background: #9D6939;
+}
+
+.customFileLable {
+    color: white;
+}
+
+/* .customFileLable::after {
+    content: "Upload";
+    margin-top: 0rem;
+    padding: 1rem 1rem 1rem 1rem;
+    padding-top: 1rem;
+    height: 3.2rem;
+    height: calc(2.5em + 0.75rem + 2px);
+    background-color: #9D6939;
+    margin-left: 190px;
+}
+
+.customFileLable {
+    width: 100%;
+    border: none;
+    border-radius: 4px 4px 0px 0px;
+    background-color: #f0f4fa;
+    border-bottom: 1px solid !important;
+    height: calc(2.5em + 0.75rem + 2px);
+    position: relative;
+
+}
+
+.customFileLable[type="file"]::-webkit-file-upload-button {
+    background: #ffffff;
+    line-height: 51px;
+    padding: 10px 30px 0px 15px;
+    visibility: hidden;
+    border-radius: 0px 4px 0px 0px;
+    border: none;
+    position: absolute;
+    top: 2px;
+    right: 13px;
+}
+
+.customFileLable1::after {
+    content: "Browse";
+    margin-top: 0rem;
+    margin-right: 0rem;
+    padding: 1rem 1rem 1rem 1rem;
+    padding-top: 1rem;
+    height: 3.2rem;
+    height: calc(2.5em + 0.75rem + 2px);
+    cursor: pointer;
+} */

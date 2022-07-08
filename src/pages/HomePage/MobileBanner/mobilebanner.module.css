@@ -1,0 +1,34 @@
+.background {
+    position: relative;
+    background: rgba(213, 186, 143, 0.16);
+    margin-top: 150px;
+}
+
+.fontStyle {
+    font-family: 'Belleza';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 90px;
+    color: #9D6939;
+}
+
+.txtcolor {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 36px;
+    color: #41270F;
+    font-family: 'Source Sans Pro';
+}
+
+.mob1 {
+    position: relative;
+    left: 120px;
+    /* bottom: 50px; */
+}
+
+.mob2 {
+    position: relative;
+    bottom: 50px;
+}

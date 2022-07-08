@@ -46,9 +46,9 @@ const Footer = () => {
                                 <div className="col-md-12">
                                     <div className="row">
                                         <div className="col-md-9">
-                                            <h6 className={`mt-4 d-flex justify-content-start mb-0  ${styles.fontsStyle}`}>Your email</h6>
+                                            <h6 className={`mt-4 d-flex justify-content-start mb-0`}>Your email</h6>
                                             <form className="input-group">
-                                                <input type="text" className="form-control form-control-sm"
+                                                <input type="text" className="form-control form-control-sm mt-1"
                                                     aria-label="Your email" aria-describedby="basic-addon2" />&nbsp;&nbsp;&nbsp;
                                             </form>
                                         </div>

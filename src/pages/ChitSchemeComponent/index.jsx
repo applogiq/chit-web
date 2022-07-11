@@ -102,7 +102,7 @@ const ChitScheme = () => {
     setShow(false);
   };
 
-  const handleFileUpload = async (e) => {
+  const  handleFileUpload = async (e) => {
     {
       const file = e.target.files[0];
       let base64 = await convertBase64(file);
@@ -120,8 +120,7 @@ const ChitScheme = () => {
 
   const CloseForm = () => {
     formik.resetForm();
-    handleHideModal();
-  }
+  };
 
   return (
     <div className={`${styles.table} container`}>

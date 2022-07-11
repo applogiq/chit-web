@@ -11,7 +11,7 @@ const config = {
   },
   local: {
     url: "http://localhost:4000/",
-    apiUrl: "http://192.168.29.155:5000/api/v1/",
+    apiUrl: "http://192.168.29.152:5000/api/v1/",
     //   bucketName: "applogiq-official-website-development"
   },
 };

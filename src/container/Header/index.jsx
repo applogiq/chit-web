@@ -11,6 +11,17 @@ import styles from "./header.module.css";
 import { CgMenu } from 'react-icons/cg';
 const Header = () => {
 
+    const DownloadApp = () => {
+        window.scrollTo(0, 3900);
+    }
+
+    const About = () => {
+        window.scrollTo(0, 1150);
+    }
+
+    const Contact = () => {
+        window.scrollTo(0, 5000);
+    }
     //  Header Nav-bar Section
     return (
         <div>
@@ -30,16 +41,16 @@ const Header = () => {
                     </button>
                     <div className="collapse navbar-collapse " id="navmenu">
                         <ul className={`navbar-nav ms-auto ${styles.btnheaderspace} ${styles.fontsAlign}`}>
-                            <Link href="/">
-                                <li>
-                                    <button className={`${styles.btnheader}`} >
-                                        Download App
-                                    </button>
-                                </li>
-                            </Link>
+
+                            <li>
+                                <button className={`${styles.btnheader}`} onClick={() => DownloadApp()}>
+                                    Download App
+                                </button>
+                            </li>
+
 
                             <li className="nav-item">
-                                <a href="#About" className="nav-link text-dark">About</a>
+                                <a href="#About" className="nav-link text-dark" onClick={() => About()}>About</a>
                             </li>
 
                             <Link href="/chitscheme">
@@ -49,7 +60,7 @@ const Header = () => {
                             </Link>
 
                             <li className="nav-item">
-                                <a href="#contact-us" className="nav-link text-dark">Contact Us</a>
+                                <a href="#contact-us" className="nav-link text-dark" onClick={() => Contact()}>Contact Us</a>
                             </li>
                         </ul>
                     </div>

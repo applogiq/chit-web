@@ -7,7 +7,7 @@ import styles from "./banner.module.css";
 const banner = () => {
     return (
         <>
-            <div className={`container-fluid pt-0 ${styles.banner}`} >
+            <div className={`container-fluid pt-0 p-0 ${styles.banner}`} >
                 <img
                     src="assets/images/banner_background.png"
                     width="100%"

@@ -22,6 +22,13 @@ const Popup = (props) => {
         CloseForm,
 
     } = props;
+
+    const ClearForm = () => {
+        setTimeout(
+            () => handleHideModal(),
+            2000
+        );
+    };
     return (
         <div
             className={`${show ? `${styles.customModal}` : 'd-none'} ${className}`}
@@ -44,7 +51,7 @@ const Popup = (props) => {
                         <Button
                             text={`${SubmitText || 'Join'}`}
                             type={`${SubmitColor || 'primary'}`}
-                            onClick={() => { handleSaveModal(), CloseForm() }}
+                            onClick={() => { handleSaveModal(), CloseForm(), ClearForm() }}
                         />
                     </footer>
                 </div>

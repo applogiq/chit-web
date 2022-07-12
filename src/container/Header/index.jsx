@@ -1,5 +1,5 @@
 /* ************************** Import Packages *************************** **/
-import React from 'react'
+import React, { useState } from 'react'
 
 /* ***************************** Import Next  Packages ******************************** **/
 import Link from "next/link";
@@ -10,6 +10,8 @@ import styles from "./header.module.css";
 /* ************************** Import Icons *************************** **/
 import { CgMenu } from 'react-icons/cg';
 const Header = () => {
+
+    const [show, setShow] = useState("All");
 
     const DownloadApp = () => {
         window.scrollTo(0, 3900);
@@ -49,17 +51,16 @@ const Header = () => {
                             </li>
 
 
-                            <li className="nav-item">
+                            <li className={show === "About" ? `${styles.navli1} nav-item` : `${styles.navli} nav-item`} onClick={() => setShow("About")}>
                                 <a href="#About" className="nav-link text-dark" onClick={() => About()}>About</a>
                             </li>
 
                             <Link href="/chitscheme">
-                                <li className="nav-item">
+                                <li className={show === "Chit" ? `${styles.navli1} nav-item` : `${styles.navli} nav-item`} onClick={() => setShow("Chit")}>
                                     <a href="#chitscheme" className="nav-link text-dark">ChitScheme</a>
                                 </li>
                             </Link>
-
-                            <li className="nav-item">
+                            <li className={show === "Contact" ? `${styles.navli1} nav-item` : `${styles.navli} nav-item`} onClick={() => setShow("Contact")}>
                                 <a href="#contact-us" className="nav-link text-dark" onClick={() => Contact()}>Contact Us</a>
                             </li>
                         </ul>

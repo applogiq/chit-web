@@ -36,6 +36,19 @@
     box-shadow: 0px 2px #e7e7e7;
 }
 
+.navli:hover {
+    /* text-decoration: underline; */
+    background: none;
+    border-bottom: 2px solid black;
+    text-underline-offset: 0.5em !important;
+}
+
+.navli1 {
+    background: none;
+    border-bottom: 2px solid rgb(172, 170, 170);
+    text-underline-offset: 0.5em !important;
+}
+
 /* Responsive */
 
 @media only screen and (min-width:320px) and (max-width:991px) {

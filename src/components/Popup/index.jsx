@@ -23,12 +23,15 @@ const Popup = (props) => {
 
     } = props;
 
-    const ClearForm = () => {
-        setTimeout(
-            () => handleHideModal(),
-            2000
-        );
-    };
+    // const ClearForm = () => {
+    //     setTimeout(
+    //         () => handleHideModal(),
+    //         2000
+    //     );
+    // };
+
+   
+
     return (
         <div
             className={`${show ? `${styles.customModal}` : 'd-none'} ${className}`}
@@ -47,11 +50,11 @@ const Popup = (props) => {
                     <hr />
                     {props.children}
                     <footer className="mt-4 d-flex justify-content-end">
-                        <Button text={`${CancelText || 'Cancel'}`} onClick={handleHideModal} />
+                        <Button text={`${CancelText || 'Cancel'}`} onClick={() => { handleHideModal(), CloseForm(); }} />
                         <Button
                             text={`${SubmitText || 'Join'}`}
                             type={`${SubmitColor || 'primary'}`}
-                            onClick={() => { handleSaveModal(), CloseForm(), ClearForm() }}
+                            onClick={() => handleSaveModal()}
                         />
                     </footer>
                 </div>

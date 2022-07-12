@@ -52,17 +52,17 @@ const ChitScheme = () => {
     validationSchema: yup.object({
       name: yup
         .string()
-        .required("Field should not be empty"),
-      email_id: yup.string().required("Field should not be empty"),
-      mobile_number: yup.string().required("Field should not be empty"),
-      country: yup.string().required("Field should not be empty"),
-      pincode: yup.string().required("Field should not be empty"),
-      state: yup.string().required("Field should not be empty"),
-      city: yup.string().required("Field should not be empty"),
+        .required("Name is Required"),
+      email_id: yup.string().required("Email-id is Required"),
+      mobile_number: yup.string().required("Mobile Number is Required"),
+      country: yup.string().required("Country is Required"),
+      pincode: yup.string().required("Pincode is Required"),
+      state: yup.string().required("State is Required"),
+      city: yup.string().required("City is Required"),
       verification_document: yup
         .string()
-        .required("Field should not be empty"),
-      document: yup.string().required("Field should not be empty"),
+        .required("Document is Required"),
+      document: yup.string().required("File is Required"),
     }),
 
     onSubmit: (userInputData) => {
@@ -102,7 +102,7 @@ const ChitScheme = () => {
     setShow(false);
   };
 
-  const  handleFileUpload = async (e) => {
+  const handleFileUpload = async (e) => {
     {
       const file = e.target.files[0];
       let base64 = await convertBase64(file);

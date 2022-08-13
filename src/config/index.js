@@ -5,8 +5,8 @@ const config = {
     // bucketName: "applogiq-official-website"
   },
   developement: {
-    url: "https://www.demo.applogiq.org/",
-    apiUrl: " https://w0jw9t60c5.execute-api.ap-southeast-1.amazonaws.com/dev/",
+    url: "https://www.chitq-demo.applogiq.org/",
+    apiUrl: "https://api-chit.applogiq.org/api/v1/",
     //   bucketName: "applogiq-official-website-development"
   },
   local: {
@@ -16,7 +16,7 @@ const config = {
   },
 };
 
-const environment = "local";
+const environment = "developement";
 
 const hostConfig = {
   WEB_URL: config[environment].url,

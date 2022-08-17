@@ -31,7 +31,7 @@ export const CreateJoinData = (data) =>
             .then((res) => {
                 if (!res.code) {
                     dispatch(joinSuccess(res));
-                    toast.success("Registered successfully");
+                    toast.success("User Added successfully");
                     return res;
                 }
                 dispatch(joinFailure(res.message));

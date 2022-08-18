@@ -72,6 +72,7 @@ const ChitScheme = () => {
         userInputData.scheme_id = popup?.id;
         dispatch(CreateJoinData(userInputData)).then((res) => {
           if (res) {
+            handleHideModal();
             console.log(res, "toastfy");
 
           }

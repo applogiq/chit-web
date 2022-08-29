@@ -34,6 +34,7 @@
 
 .navtxt {
     box-shadow: 0px 2px #e7e7e7;
+    height: 80px;
 }
 
 .navli:hover {
@@ -58,4 +59,8 @@
         width: 100%;
         text-align: left;
     }
+}
+
+.sacle-down {
+    font-size: 16px !important;
 }

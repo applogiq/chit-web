@@ -71,11 +71,10 @@ const ChitScheme = () => {
       if (userInputData) {
         userInputData.scheme_id = popup?.id;
         dispatch(CreateJoinData(userInputData)).then((res) => {
-          if (res) {
-            formik.resetForm();
-            handleHideModal();
-            console.log(res, "toastfy");
-
+          formik.resetForm();
+          handleHideModal();
+          if (res.status_code === 201 && res.status_code === 200) {
+            toast.success("User Added successfully");
           }
         });
       }

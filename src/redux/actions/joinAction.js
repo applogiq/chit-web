@@ -31,11 +31,10 @@ export const CreateJoinData = (data) =>
             .then((res) => {
                 if (!res.code) {
                     dispatch(joinSuccess(res));
-                    toast.success("User Added successfully");
                     return res;
                 }
                 dispatch(joinFailure(res.message));
-                toast.error(res.message);
+                toast.error(res.detail.error);
                 return res.message;
             })
             .catch((err) => console.log("Catch Error:", err));

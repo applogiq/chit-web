@@ -1,10 +1,12 @@
 /** ********************************* Import config files ************************************* */
+import { toast } from "react-toastify";
 import { hostConfig } from "../config";
 
 const responseStatusHandler = (response) => {
     switch (response.status) {
         case 400:
-            return response;
+            // return toast.error(response.statusText);
+            return toast.error("Email id Already existing");
         case 401:
             return { error: "Unauthorized" };
         case 402:
@@ -69,7 +71,7 @@ export const postDataApi = (requestUrl, params) => {
             return responseStatusHandler(response);
         })
         .then((result) =>
-            result.status === 200 || result.status === 201 || result.status === 400
+            result.status === 200 || result.status === 201
                 ? result.json()
                 : result
         )

@@ -14,19 +14,23 @@ const Header = () => {
     const [show, setShow] = useState("All");
 
     const DownloadApp = () => {
-        window.scrollTo(0, 3900);
-    }
+        setTimeout(() => {
+            window.scrollTo(0, 3900);
+        }, 3000);
+    };
 
     const About = () => {
-        window.scrollTo(0, 1150);
-    }
+        setTimeout(() => {
+            window.scrollTo(0, 1150);
+        }, 1000);
+    };
 
     const Contact = () => {
         window.scrollTo(0, 5000);
     }
     //  Header Nav-bar Section
     return (
-        <div>
+        <div className='sacle-down'>
             <nav className={`${styles.navtxt} navbar navbar-expand-lg bg-white navbar-dark py-3 fixed-top`}>
                 <div className="container">
                     <Link href="/">
@@ -44,16 +48,19 @@ const Header = () => {
                     <div className="collapse navbar-collapse " id="navmenu">
                         <ul className={`navbar-nav ms-auto ${styles.btnheaderspace} ${styles.fontsAlign}`}>
 
-                            <li>
-                                <button className={`${styles.btnheader}`} onClick={() => DownloadApp()}>
-                                    Download App
-                                </button>
-                            </li>
+                            <Link href="/" onClick={() => DownloadApp()}>
+                                <li>
+                                    <button className={`${styles.btnheader}`} >
+                                        Download App
+                                    </button>
+                                </li>
+                            </Link>
 
-
-                            <li className={show === "About" ? `${styles.navli1} nav-item` : `${styles.navli} nav-item`} onClick={() => setShow("About")}>
-                                <a href="#About" className="nav-link text-dark" onClick={() => About()}>About</a>
-                            </li>
+                            <Link href="/" onClick={() => About()}>
+                                <li className={show === "About" ? `${styles.navli1} nav-item` : `${styles.navli} nav-item`} onClick={() => setShow("About")}>
+                                    <a href="#About" className="nav-link text-dark" onClick={() => About()}>About</a>
+                                </li>
+                            </Link>
 
                             <Link href="/chitscheme">
                                 <li className={show === "Chit" ? `${styles.navli1} nav-item` : `${styles.navli} nav-item`} onClick={() => setShow("Chit")}>

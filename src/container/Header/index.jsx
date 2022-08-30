@@ -62,9 +62,9 @@ const Header = () => {
                                 </li>
                             </Link>
 
-                            <Link href="/chitscheme">
+                            <Link href="/chit-scheme">
                                 <li className={show === "Chit" ? `${styles.navli1} nav-item` : `${styles.navli} nav-item`} onClick={() => setShow("Chit")}>
-                                    <a href="#chitscheme" className="nav-link text-dark">ChitScheme</a>
+                                    <a href="#chitscheme" className="nav-link text-dark">Chit Scheme</a>
                                 </li>
                             </Link>
                             <li className={show === "Contact" ? `${styles.navli1} nav-item` : `${styles.navli} nav-item`} onClick={() => setShow("Contact")}>

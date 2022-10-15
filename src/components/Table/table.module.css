@@ -2,8 +2,9 @@
     /* overflow-x: auto;
     overflow-y: scroll; */
     /* padding: 1rem; */
-    height: 100%;
-    background: rgba(213, 186, 143, 0.16);
+    min-height: 50vh;
+    box-shadow: 0px 0px 5px 1px lightgrey;
+    /* background: rgba(213, 186, 143, 0.16); */
 }
 
 /* .customTable table {
@@ -20,7 +21,13 @@
     border-style: none;
 }
 
-.customTable th,
+.customTable th{
+    background:rgba(213, 186, 143, 0.16);
+    text-align: left;
+    padding: 8px;
+    font-weight: 600;
+    color: rgba(65, 39, 15, 0.8);
+}
 .customTable td {
     text-align: left;
     padding: 8px;
@@ -43,4 +50,5 @@
 
 .headcolor {
     color: rgba(65, 39, 15, 0.6);
+
 }

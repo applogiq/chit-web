@@ -128,7 +128,7 @@ const ChitScheme = ({ loading }) => {
 
   return (
     <div className={`${styles.table} container`}>
-      <h3 className={`${styles.tabletxt}`}>Chit Schemes</h3>
+      <h3 className={`${styles.tabletxt} mb-4`}>Chit Schemes</h3>
       <Table
         fields={[
           "SchemeName",

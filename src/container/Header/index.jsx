@@ -58,15 +58,15 @@ const Header = () => {
             <ul
               className={`navbar-nav ms-auto ${styles.btnheaderspace} ${styles.fontsAlign}`}
             >
-              <Link href="/" onClick={() => DownloadApp()}>
-                <li>
+              <Link href="/">
+                <li onClick={() => DownloadApp()}>
                   <button className={`${styles.btnheader}`}>
                     Download App
                   </button>
                 </li>
               </Link>
 
-              <Link href="/" onClick={() => About()}>
+              <Link href="/">
                 <li
                   className={
                     show === "About"

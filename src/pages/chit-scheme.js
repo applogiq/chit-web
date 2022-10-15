@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 /* ************************** Import Components *************************** **/
 const ChitScheme = dynamic(() => import("./ChitSchemeComponent"), {
-  ssr: false,
+  ssr: true,
 }); // To fix "Warning: Expected server HTML to contain a matching <tag> in <tag>."
 
 const ChitSchemeRoute = () => {

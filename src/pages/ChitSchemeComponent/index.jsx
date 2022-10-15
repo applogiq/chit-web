@@ -22,12 +22,18 @@ import { CreateJoinData } from "../../redux/actions/joinAction";
 import { convertBase64 } from "../../utils/convertBase64";
 import inputMask from "../../utils/inputMasking";
 
-const ChitScheme = () => {
+const ChitScheme = ({ loading }) => {
   const dispatch = useDispatch();
   const [data, setData] = useState([]);
   const [show, setShow] = useState(false);
   const [popup, setPopup] = useState({});
   const [schemeId, setSchemeId] = useState("");
+  const SUPPORTED_FORMATS = [
+    "image/jpg",
+    "image/jpeg",
+    "image/gif",
+    "image/png",
+  ];
 
   useEffect(() => {
     dispatch(getSchemeData()).then((res) => {
@@ -50,19 +56,29 @@ const ChitScheme = () => {
       document_type: "",
     },
     validationSchema: yup.object({
-      name: yup
-        .string()
-        .required("Name is Required"),
+      name: yup.string().required("Name is Required"),
       email_id: yup.string().required("Email-id is Required"),
       mobile_number: yup.string().required("Mobile Number is Required"),
       country: yup.string().required("Country is Required"),
       pincode: yup.string().required("Pincode is Required"),
       state: yup.string().required("State is Required"),
       city: yup.string().required("City is Required"),
-      verification_document: yup
-        .string()
-        .required("Document is Required"),
-      document: yup.string().required("File is Required"),
+      verification_document: yup.string().required("Document is Required"),
+
+      // document: mixed()
+      //   .test(
+      //     "fileSize",
+      //     "File too large",
+      //     (value) => value === null || (value && value.size <= FILE_SIZE)
+      //   )
+      //   .test(
+      //     "fileFormat",
+      //     "Unsupported file type",
+      //     (value) =>
+      //       value === null || (value && SUPPORTED_FORMATS.includes(value.type))
+      //   ),
+
+      document: yup.mixed().required("Document is required"),
     }),
 
     onSubmit: (userInputData) => {
@@ -73,21 +89,8 @@ const ChitScheme = () => {
         dispatch(CreateJoinData(userInputData)).then((res) => {
           formik.resetForm();
           handleHideModal();
-          if (res.status_code === 201 && res.status_code === 200) {
-            toast.success("User Added successfully");
-          }
         });
       }
-
-      // formik.values.name = "";
-      // formik.values.email_id = "";
-      // formik.values.mobile_number = "";
-      // formik.values.country = "";
-      // formik.values.pincode = "";
-      // formik.values.state = "";
-      // formik.values.city = "";
-      // formik.values.verification_document = "";
-      // // formik.values.document = '';
     },
   });
 
@@ -164,12 +167,12 @@ const ChitScheme = () => {
         handleSaveModal={formik.handleSubmit}
         title="Join Scheme"
         CloseForm={CloseForm}
-
+        loading={loading}
       >
-        <form onSubmit={formik.handleSubmit} >
+        <form onSubmit={formik.handleSubmit}>
           <div className="row ps-4 mt-4">
             <div className="col-md-6 form-group">
-              <h6 className="mb-0 mt-3 ">Your Name</h6>
+              <h6 className="mb-0 ">Your Name</h6>
               <Form
                 width="95%"
                 height="38px"
@@ -180,11 +183,15 @@ const ChitScheme = () => {
                 padding="0px 10px 0px 10px"
               />
               {formik.touched.name && formik.errors.name ? (
-                <span className="text-danger error">{formik.errors.name}</span>
-              ) : null}
+                <div className="text-danger error py-1">
+                  {formik.errors.name}
+                </div>
+              ) : (
+                <div className="text-danger error py-1">&nbsp;</div>
+              )}
             </div>
             <div className="col-md-6 form-group">
-              <h6 className="mb-0 mt-3 ">Email address</h6>
+              <h6 className="mb-0  ">Email address</h6>
               <Form
                 width="95%"
                 height="38px"
@@ -196,14 +203,16 @@ const ChitScheme = () => {
               />
               <div>
                 {formik.touched.email_id && formik.errors.email_id ? (
-                  <span className="text-danger error">
+                  <div className="text-danger error py-1">
                     {formik.errors.email_id}
-                  </span>
-                ) : null}
+                  </div>
+                ) : (
+                  <div className="text-danger error py-1">&nbsp;</div>
+                )}
               </div>
             </div>
             <div className="col-md-6 form-group">
-              <h6 className="mb-0 mt-3 ">Mobile number</h6>
+              <h6 className="mb-0  ">Mobile number</h6>
               <Form
                 width="95%"
                 height="38px"
@@ -213,60 +222,70 @@ const ChitScheme = () => {
                   formik.setFieldValue("mobile_number", maskedValue);
                 }}
                 // onBlur={formik.handleBlur}
-                value={
-                  formik.values.mobile_number
-                }
+                value={formik.values.mobile_number}
                 margin="10px 0px 0px 0px"
                 padding="0px 10px 0px 10px"
               />
               <div>
                 {formik.touched.mobile_number && formik.errors.mobile_number ? (
-                  <span className="text-danger error">
+                  <div className="text-danger error py-1">
                     {formik.errors.mobile_number}
-                  </span>
-                ) : null}
+                  </div>
+                ) : (
+                  <div className="text-danger error py-1">&nbsp;</div>
+                )}
               </div>
             </div>
             <div className="col-md-6 form-group">
-              <h6 className="mb-0 mt-3 ">Country</h6>
-              <Form
+              <h6 className="mb-0  ">Country</h6>
+              <SelectBox
                 width="95%"
                 height="38px"
                 name="country"
-                value={formik.values.country}
-                onChange={formik.handleChange}
                 margin="10px 0px 0px 0px"
                 padding="0px 10px 0px 10px"
-              />
+                onChange={formik.handleChange}
+                value={formik.values.country}
+              >
+                <option value="">Select</option>
+                <option value="India">India</option>
+              </SelectBox>
               <div>
                 {formik.touched.country && formik.errors.country ? (
-                  <span className="text-danger error">
+                  <div className="text-danger error py-1">
                     {formik.errors.country}
-                  </span>
-                ) : null}
+                  </div>
+                ) : (
+                  <div className="text-danger error py-1">&nbsp;</div>
+                )}
               </div>
             </div>
             <div className="col-md-6 form-group">
-              <h6 className="mb-0 mt-3 ">State</h6>
-              <Form
+              <h6 className="mb-0  ">State</h6>
+              <SelectBox
                 width="95%"
                 height="38px"
                 name="state"
-                value={formik.values.state}
-                onChange={formik.handleChange}
                 margin="10px 0px 0px 0px"
                 padding="0px 10px 0px 10px"
-              />
+                onChange={formik.handleChange}
+                value={formik.values.state}
+              >
+                <option value="">Select</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+              </SelectBox>
               <div>
                 {formik.touched.state && formik.errors.state ? (
-                  <span className="text-danger error">
+                  <div className="text-danger error py-1">
                     {formik.errors.state}
-                  </span>
-                ) : null}
+                  </div>
+                ) : (
+                  <div className="text-danger error py-1">&nbsp;</div>
+                )}
               </div>
             </div>
             <div className="col-md-6 form-group">
-              <h6 className="mb-0 mt-3 ">City</h6>
+              <h6 className="mb-0  ">City</h6>
               <Form
                 width="95%"
                 height="38px"
@@ -278,14 +297,16 @@ const ChitScheme = () => {
               />
               <div>
                 {formik.touched.city && formik.errors.city ? (
-                  <span className="text-danger error">
+                  <div className="text-danger error py-1">
                     {formik.errors.city}
-                  </span>
-                ) : null}
+                  </div>
+                ) : (
+                  <div className="text-danger error py-1">&nbsp;</div>
+                )}
               </div>
             </div>
             <div className="col-md-6 form-group">
-              <h6 className="mb-0 mt-3 ">Pincode</h6>
+              <h6 className="mb-0  ">Pincode</h6>
               <Form
                 width="95%"
                 height="38px"
@@ -300,14 +321,16 @@ const ChitScheme = () => {
               />
               <div>
                 {formik.touched.pincode && formik.errors.pincode ? (
-                  <span className="text-danger error">
+                  <div className="text-danger error py-1">
                     {formik.errors.pincode}
-                  </span>
-                ) : null}
+                  </div>
+                ) : (
+                  <div className="text-danger error py-1">&nbsp;</div>
+                )}
               </div>
             </div>
             <div className="col-md-6 form-group">
-              <h6 className="mb-0 mt-3 ">Verification document</h6>
+              <h6 className="mb-0  ">Verification document</h6>
               <SelectBox
                 width="95%"
                 height="38px"
@@ -324,15 +347,17 @@ const ChitScheme = () => {
               </SelectBox>
               <div>
                 {formik.touched.verification_document &&
-                  formik.errors.verification_document ? (
-                  <span className="text-danger error">
+                formik.errors.verification_document ? (
+                  <div className="text-danger error py-1">
                     {formik.errors.verification_document}
-                  </span>
-                ) : null}
+                  </div>
+                ) : (
+                  <div className="text-danger error py-1">&nbsp;</div>
+                )}
               </div>
             </div>
             <div className="col-md-6 form-group">
-              <h6 className="mb-0 mt-3 ">Upload</h6>
+              <h6 className="mb-0  ">Upload</h6>
               <Form
                 type="file"
                 width="95%"
@@ -345,10 +370,12 @@ const ChitScheme = () => {
               />
               <div>
                 {formik.touched.document && formik.errors.document ? (
-                  <span className="text-danger error">
+                  <div className="text-danger error py-1">
                     {formik.errors.document}
-                  </span>
-                ) : null}
+                  </div>
+                ) : (
+                  <div className="text-danger error py-1">&nbsp;</div>
+                )}
               </div>
             </div>
           </div>
